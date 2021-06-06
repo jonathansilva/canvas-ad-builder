@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <title>Canvas announce builder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="nofollow">
+    <meta name="googlebot" content="noindex">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <article>
+        <div class="two-inputs">
+            <input type="text" name="title" placeholder="O que está anunciando ?" autocomplete="nope" />
+
+            <div class="file-button">
+                <span>Foto principal</span>
+            </div>
+
+            <input type="file" class="file-chooser hidden" accept="image/jpg, image/jpeg, image/png" />
+        </div>
+
+        <div class="two-inputs">
+            <input type="text" name="price" maxlength="12" placeholder="R$" autocomplete="nope" />
+            <input type="text" name="phone" maxlength="15" placeholder="Whatsapp" autocomplete="nope" />
+        </div>
+
+        <div class="two-inputs">
+            <input type="text" name="city" placeholder="Cidade" autocomplete="nope" />
+            <input type="text" name="state" placeholder="Estado" autocomplete="nope" />
+        </div>
+
+        <div class="two-inputs">
+            <div class="button-card used">
+                <input type="checkbox" name="used" class="checkbox checkbox-button-card" disabled />
+                <span>Usado</span>
+            </div>
+
+            <div class="button-card accept">
+                <input type="checkbox" name="accept" class="checkbox checkbox-button-card" disabled />
+                <span>Aceita troca</span>
+            </div>
+        </div>
+    </article>
+
+    <div class="buttons">
+        <div class="button button-generate">Concluir</div>
+        <div class="button button-view">Compartilhar</div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+</html>
