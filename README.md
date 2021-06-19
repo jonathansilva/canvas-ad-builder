@@ -1,4 +1,6 @@
-Projeto fictício em Javascript, usando Canvas para gerar anúncios 1080x1080 ( Feed do Instagram )
+Projeto fictício, usando Canvas para gerar anúncios 1080x1080 ( Feed do Instagram )
+
+> Necessário modificações nas posições X e Y dos textos e imagem, para adicionar novos templates
 
 ### Demo
 https://jonathansilva.github.io/canvas-announce-builder
