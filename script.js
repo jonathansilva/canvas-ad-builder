@@ -44,10 +44,12 @@ const toggleChecked = element => {
     isChecked(element, checked);
 }
 
+// Converte para maiúscula o primeiro caractere de uma string
 const capitalize = string => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Quebra de linha para textos longos
 const customText = (context, text, x, y, lineHeight, fitWidth) => {
     let words = text.split(' ');
     let currentLine = 0;
@@ -109,7 +111,7 @@ const regexPrice = v => {
         v = v.replace(/(\d)(?=(\d{3})+\,)/g, "$1."); // Adiciona ponto
     }
 
-    v = `R$ ${v}`; // Adiciona prefixo
+    v = `R$ ${v}`; // Adiciona o prefixo R$
 
     return v;
 }
@@ -134,12 +136,12 @@ const resize = (originalWidth, originalHeight) => {
     }
 }
 
-const canvasBackground = (canvas, context, background, image) => {
-    background.onload = () => {
-        canvas.width = background.width;
-        canvas.height = background.height;
+const canvasTemplate = (canvas, context, template, image) => {
+    template.onload = () => {
+        canvas.width = template.width;
+        canvas.height = template.height;
 
-        context.drawImage(background, 0, 0);
+        context.drawImage(template, 0, 0);
 
         context.drawImage(image, 20, 457, imageWidth, imageHeight);
 
@@ -176,7 +178,7 @@ const canvasBackground = (canvas, context, background, image) => {
         context.textAlign = "start";
         context.fillStyle = "#3B4854";
         context.fillText(capitalize(state.value), (canvas.width / 2) + 70, 995);
-    };
+    }
 }
 
 const generate = () => {
@@ -195,8 +197,8 @@ const generate = () => {
 
         reader.onload = event => {
             Promise.all([
-                load(event.target.result),
-                load(reader.result),
+                load(event.target.result), // images[0] ( Foto do produto )
+                load(reader.result), // images[1] ( Template )
               ])
               .then(images => {
                 originalWidth = images[0].width;
@@ -212,9 +214,9 @@ const generate = () => {
                     imageWidth = originalWidth * (imageHeight / originalHeight);
                 }
 
-                images[1].src = "backgrounds/default.png";
+                images[1].src = "templates/default.png";
 
-                canvasBackground(canvas, context, images[1], images[0]);
+                canvasTemplate(canvas, context, images[1], images[0]);
               })
         }
 
@@ -224,6 +226,7 @@ const generate = () => {
     }
 }
 
+// Visualizar o anúncio em tamanho real
 const view = () => {
     if (canvas) {
         const base64 = document.querySelector('canvas').toDataURL("image/png", 1.0);
