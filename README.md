@@ -1,6 +1,6 @@
 Projeto fictício, usando Canvas para gerar anúncios 1080x1080 ( Feed do Instagram )
 
-> Necessário modificações nas posições X e Y dos textos e imagem, para adicionar novos templates
+> As posições ( X / Y ) dos textos e imagem do produto, são específicas para o template usado no projeto
 
 ### Demo
 https://jonathansilva.github.io/canvas-ad-builder
